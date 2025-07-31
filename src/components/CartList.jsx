@@ -15,11 +15,9 @@ const CartList = (props) => {
     return (
         <div>
             {cart.map(function (product , index) {
-                if(index%2==0){
+                
                     return <CartRow title={product.title} price={product.price} img={product.img} />
-                }else{
-                    return null;
-                }
+                
                 
             })}
         </div>
