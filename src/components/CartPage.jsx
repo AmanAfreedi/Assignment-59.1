@@ -7,7 +7,7 @@ const CartPage = () => {
 
     return (
         <>  
-            <Link to={`/productDetails/${id}`}><FiArrowLeft className='w-7 h-7 ml-[15vw] mt-[1vh] justify-self-start' /></Link>
+            <Link to={`/`}><FiArrowLeft className='w-7 h-7 ml-[15vw] mt-[1vh] justify-self-start' /></Link>
             <div className='flex flex-col items-center w-screen'>
                 
                 <div className='flex gap-2 border-[0.5px] border-gray-300 bg-gray-200 h-13 mt-5 w-[70%] items-center'>

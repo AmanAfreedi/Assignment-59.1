@@ -9,16 +9,17 @@ import CartPage from './components/CartPage'
 const App = () => {
   return (
     <div className='bg-gray-100 overflow-x-hidden h-screen flex flex-col'>
-      <Navbar />
+      <Navbar className="fixed"/>
       <div className='grow'>
         <Routes>
         <Route path='/' element={<AllProducts />}/>
         <Route path='/productDetails/:id' element={<ProductDetails />}/>
         <Route path='/productDetails/:id/Cart' element={<CartPage/>}/>
+        <Route path='/productDetails/Cart' element={<CartPage/>}/>
       </Routes>
      
       </div>
-      <Footer className="mb-0" />
+      <Footer />
     </div>
   )
 }

@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import ProductList from "./ProductList"
 import getProducts from "./Api"
+import { Link } from 'react-router'
+import { FiArrowRight } from "react-icons/fi";
+
 const AllProducts = () => {
   const [query , setQuery] = useState('');
   const [sort , setSort] = useState('default');
@@ -40,10 +43,10 @@ const AllProducts = () => {
   return (
     <div className='flex flex-col'>
     
-    <div className='flex flex-col grow bg-white self-center mt-10 mb-10 min-h-[68vh]'>
+    <div className='flex flex-col grow bg-white self-center mt-10 mb-10 w-[80vw]'>
       <div className='flex justify-between'>
-      <input onChange={handleQueryChange} type="text" placeholder='Search' className=' bg-blue-50 w-[150px] ml-10 md:ml-50 pl-4 border-1 md:w-[280px] h-10 mt-20'/>
-      <select onChange={handleSortChange} className='border  md: bg-blue-50 p-1 md:pl-3 w-[150px] mr-10 md:pr-10 md:w-1 mt-20  md:w-auto md:mr-50'>
+      <input onChange={handleQueryChange} type="text" placeholder='Search' className=' bg-blue-50 w-[150px] ml-10 md:ml-15 pl-4 border-1 md:w-[280px] h-10 mt-20'/>
+      <select onChange={handleSortChange} className='border  md: bg-blue-50 p-1 md:pl-3 w-[150px] mr-10 md:pr-10 md:w-1 mt-20  md:w-auto md:mr-15'>
           <option value="default">Default Sort</option>
           <option value="title">Sort by title</option>
           <option value="l2h">Sort by price: low to high</option>
@@ -51,6 +54,12 @@ const AllProducts = () => {
         </select>
       </div>
    <ProductList products={data}/>
+   <div className='flex gap-1 ml-15 mb-5 mt-5'>
+    <Link to={`/`} className='border p-2 pl-3 pr-3 border-orange-700 bg-orange-600 hover:bg-white'>1</Link>
+    <Link to={`/`} className='border p-2 pl-3 pr-3 border-orange-700 bg-orange-600 hover:bg-white'>2</Link>
+    <Link to={`/`} className='border p-2 pl-3 pr-3 border-orange-700 bg-orange-600 hover:bg-white'><FiArrowRight className='mt-1' /></Link>
+    
+   </div>
     </div>
     
    </div>
