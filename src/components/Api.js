@@ -1,9 +1,19 @@
-import { useParams } from "react-router";
-import Alldata from "./Alldata";
+import axios from "axios";
 
 function getProducts(){
-    console.log("getProduct called")
-    return Alldata;
+    
+    return axios.get("https://dummyjson.com/products").then((response) => {
+        return response.data.products;
+       
+    });
     
 }
+function getProduct(id) {
+    return axios.get(`https://dummyjson.com/products/${id}`).then((response) => {
+        return response.data;
+
+       
+    });
+}
 export default getProducts;
+export {getProduct}

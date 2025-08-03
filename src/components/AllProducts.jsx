@@ -16,9 +16,14 @@ const AllProducts = () => {
     setSort(event.target.value);
   }
   useEffect(function(){
-    const list = getProducts();
-    setdata(list);
+    getProducts().then((item)=>{
+      console.log("AllProduct data " , item)
+      setdata(item);
+    })
   },[])
+  if(!Alldata){
+    return <div>Loading....</div>
+  }
   const data =Alldata.filter(function (items){
     if(items.title.toLowerCase().indexOf(query.toLowerCase())!=-1){
       return true;
@@ -41,9 +46,9 @@ const AllProducts = () => {
   }
   console.log(data)
   return (
-    <div className='flex flex-col'>
+    <div className='flex flex-col max-w-6xl mx-auto flex-wrap'>
     
-    <div className='flex flex-col grow bg-white self-center mt-10 mb-10 w-[80vw]'>
+    <div className='flex flex-col grow bg-white self-center max-w-6xl mt-10 mb-10 '>
       <div className='flex justify-between'>
       <input onChange={handleQueryChange} type="text" placeholder='Search' className=' bg-blue-50 w-[150px] ml-10 md:ml-15 pl-4 border-1 md:w-[280px] h-10 mt-20'/>
       <select onChange={handleSortChange} className='border  md: bg-blue-50 p-1 md:pl-3 w-[150px] mr-10 md:pr-10 md:w-1 mt-20  md:w-auto md:mr-15'>
