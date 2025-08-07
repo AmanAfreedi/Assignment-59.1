@@ -8,7 +8,7 @@ import ProductDetails from "./components/ProductDetails"
 import CartPage from './components/CartPage'
 const App = () => {
   return (
-    <div className='bg-gray-100 overflow-x-hidden h-screen flex flex-col'>
+    <div className='bg-gray-100 overflow-x-hidden h-screen flex flex-col overflow-y-visible'>
       <Navbar className="fixed"/>
       <div className='grow'>
         <Routes>

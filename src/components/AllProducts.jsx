@@ -3,6 +3,7 @@ import ProductList from "./ProductList"
 import getProducts from "./Api"
 import { Link } from 'react-router'
 import { FiArrowRight } from "react-icons/fi";
+import Loading from './Loading';
 
 const AllProducts = () => {
   const [query , setQuery] = useState('');
@@ -16,13 +17,12 @@ const AllProducts = () => {
     setSort(event.target.value);
   }
   useEffect(function(){
-    getProducts().then((item)=>{
-      console.log("AllProduct data " , item)
-      setdata(item);
+    getProducts().then((data) => {
+      setdata([...data]);
     })
   },[])
-  if(!Alldata){
-    return <div>Loading....</div>
+  if(Alldata.length===0){
+    return <div><Loading/></div>
   }
   const data =Alldata.filter(function (items){
     if(items.title.toLowerCase().indexOf(query.toLowerCase())!=-1){

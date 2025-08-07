@@ -4,18 +4,18 @@ import { Link, useParams } from 'react-router'
 import { FiArrowLeft } from "react-icons/fi";
 import getProducts, { getProduct } from './Api';
 import Relatedproducts from './Relatedproducts';
+import Loading from './Loading';
 const ProductDetails = (info) => {
   const { id } = useParams()
   const [Product, setproduct] = useState({})
+  let [p, setp] = useState(true);
   useEffect(function () {
     getProduct(id).then((item) => {
       setproduct(item)
-
+      setp(false);
     })
   }, [id])
-  if (!Product) {
-    return <div>Loading.....</div>
-  }
+  
   
   const [num, setnum] = useState(1);
   function handleNumChange(event) {

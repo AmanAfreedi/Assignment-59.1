@@ -17,9 +17,7 @@ const CartList = (props) => {
       })
     }
   }, [id])
-  if (!Product) {
-    return <>Loading...</>
-  }
+  
   console.log(cart)
   return (
     <div>
